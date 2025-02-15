@@ -4,6 +4,19 @@
 
 ## Description and XPath Expressions
 
+### Navigation Bar Locators:
+| **Description**                                                                                             | **Expression** | **Result** |
+|-------------------------------------------------------------------------------------------------------------|----------------|------------|
+| Finding all clickable elements in the navigation bar with `<a>` tag                                         | `//nav//a` | `<a _ngcontent-olu-c1="" class="navbar-brand"><img _ngcontent-olu-c1="" alt="homeIcon" id="homeIcon" src="../../../assets/Iskillo-logo.png" tabindex="0"></a>`<br>`<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-home" href="/posts/all">Home</a>`<br>`<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-login" href="/users/login">Login</a>` |
+| Finding all clickable elements in the navigation bar with `<a>` tag by descending to a specific class `nav` | `//a[contains(@class, "nav")]` | N/A |
+| Finding all clickable elements in the navigation menu with `<a>` or `<button>` tags and class `nav`         | `//a[contains(@class, "nav")] \| //button[contains(@class, "nav")]` | `<a _ngcontent-olu-c1="" class="navbar-brand"><img _ngcontent-olu-c1="" alt="homeIcon" id="homeIcon" src="../../../assets/Iskillo-logo.png" tabindex="0"></a>`<br><br>`<button _ngcontent-olu-c1="" class="navbar-toggler" type="button"><span _ngcontent-olu-c1="" class="navbar-toggler-icon"></span></button>`<br><br>`<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-home" href="/posts/all">Home</a>`<br>`<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-login" href="/users/login">Login</a>` |
+| **Alternate version of the above using Axes**                                                               | `//*[self::a or self::button][contains(@class, "nav")]` | *See above* |
+| Finding all elements from `<a>` tag with `class="navbar-brand"`                                             | `//a[@class="navbar-brand"]` | `<a _ngcontent-olu-c1="" class="navbar-brand"><img _ngcontent-olu-c1="" alt="homeIcon" id="homeIcon" src="../../../assets/Iskillo-logo.png" tabindex="0"></a>` |
+| Finding all elements from `<a>` tag with `class="nav-link"`                                                 | `//a[@class="nav-link"]` | `<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-login" href="/users/login">Login</a>`<br>`<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-home" href="/posts/all">Home</a>` |
+| Finding a specific element by ID - `homeIcon`                                                               | `//*[@id="homeIcon"]` | `<img _ngcontent-olu-c1="" alt="homeIcon" id="homeIcon" src="../../../assets/Iskillo-logo.png" tabindex="0">` |
+| Finding a specific element by ID - `nav-link-home`                                                          | `//*[@id="nav-link-home"]` | `<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-home" href="/posts/all">Home</a>` |
+| Finding a specific element by ID - `nav-link-login`                                                         | `//*[@id="nav-link-login"]` | `<a _ngcontent-olu-c1="" class="nav-link" id="nav-link-login" href="/users/login">Login</a>` |
+
 ### Form Field Locators:
 | **Description** | **Expression** | **Result** |
 |-----------------|----------------|------------|
