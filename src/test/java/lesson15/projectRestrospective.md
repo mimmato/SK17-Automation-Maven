@@ -14,7 +14,7 @@ The goal was to define **reliable and precise** locators for UI elements, ensuri
 - **Eduard S.**: Analyzed elements on **Page 1** (Home/Posts).
 - **Mihail Mihaylov**: Analyzed elements on **Page 2** (Users/Login).
 
-- **Collaboration**: We worked together to refine expressions, review accuracy, and document findings.
+We worked together to identify suitable elements and XPath expressions for both pages, focusing on meaningful and reliable locators. To maintain clarity and efficiency, we limited our findings to 3-4 key categories per page. These categories were chosen based on factors such as element location, functionality, role within the application, and the type of information they hold.
 
 ## 3. Key Dates & Milestones
 | **Date**    | **Milestone**                                |
@@ -25,17 +25,26 @@ The goal was to define **reliable and precise** locators for UI elements, ensuri
 | 17-Feb-2025 | Documentation finalized & submission.        |
 
 ## 4. Why We Chose These Elements
-Our analysis focused on **critical interactive elements** that are essential for UI navigation and user authentication. The selection criteria included:
+Our research focused on finding essential for UI navigation and user authentication elements. The selection criteria included:
 - **User Inputs & Buttons**: Login fields, buttons, and feedback messages.
 - **Navigation Links & Clickable Items**: Ensuring all main navigation components are covered.
-- **UI Feedback & Messages**: Capturing alerts and validation messages for test verification.
+- **UI Feedback & Messages**: Alerts and validation messages for test verification.
+- **Posts data & Components**: To find specific attributes of a post i.e. images, author, Like/dislike counts, timestamps etc.
 
-## 5. Challenges & Solutions
-| **Challenge** | **Solution** |
-|--------------|-------------|
-| Some elements had dynamic attributes (e.g., changing IDs). | Used stable attributes like `formcontrolname` and `class`. |
-| Multiple similar elements made XPath selection tricky. | Used more specific expressions with `contains()` and direct attributes. |
-| Ensuring XPath expressions were valid and efficient. | Regular reviews and testing to refine locators. |
+## 5. Categories breakdown
+
+- Navigation Bar Locators – We performed similar checks for the navigation menu since it remains consistent across all pages of the website.
+    The goal was to identify expressions that locate essential navigation elements, including buttons and hyperlinks.
+
+Page 1 (Home/Posts):
+
+- Post Locators – We identified expressions to capture all available posts and locate key elements such as timestamps, usernames/authors, feed images, post images, and like/dislike counts.
+
+Page 2 (Users/Login):
+
+- Form Field Locators – Used to verify the presence of essential fields for user login.
+- UI Consistency Check – Used to find dynamic elements, including buttons and hyperlinks.
+- User Feedback Messages – Used to locate alerts necessary for form validation.
 
 ## 6. Next Steps (Automation)
 - Use these locators in **test automation scripts**.
