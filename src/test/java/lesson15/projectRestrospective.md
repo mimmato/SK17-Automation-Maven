@@ -38,7 +38,7 @@ Our research focused on finding essential for UI navigation and user authenticat
 
 Page 1 (Home/Posts):
 
-- Post Locators – We identified expressions to capture all available posts and locate key elements such as timestamps, usernames/authors, feed images, post images, and like/dislike counts.
+- Post Locators – Used to identify expressions to capture all available posts and locate key elements such as timestamps, usernames/authors, feed images, post images, and like/dislike counts.
 
 Page 2 (Users/Login):
 
