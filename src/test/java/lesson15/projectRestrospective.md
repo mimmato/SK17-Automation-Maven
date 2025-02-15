@@ -47,8 +47,6 @@ Page 2 (Users/Login):
 - User Feedback Messages – Used to locate alerts necessary for form validation.
 
 ## 6. Next Steps (Automation)
-- Use these locators in **test automation scripts**.
-- Maintain documentation to update XPath selectors as the UI evolves.
-- Consider CSS selectors as an alternative for some cases.  
+ 
 
 We should explain why the locators we picked are suitable for the next steps
