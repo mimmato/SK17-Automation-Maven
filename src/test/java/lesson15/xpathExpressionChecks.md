@@ -24,11 +24,6 @@
 | Finding specific user input fields - usernameOrEmail | `//input[@formcontrolname="usernameOrEmail"]` | `<input _ngcontent-doh-c8="" class="form-control mb-4 ng-pristine ng-invalid ng-touched" formcontrolname="usernameOrEmail" id="defaultLoginFormUsername" name="usernameOrEmail" placeholder="Username or email" type="text">` |
 | Finding specific user input fields - defaultLoginFormPassword | `//input[@formcontrolname="password"]` | `<input _ngcontent-doh-c8="" class="form-control mb-4 ng-untouched ng-pristine ng-invalid" formcontrolname="password" id="defaultLoginFormPassword" name="password" placeholder="Password" type="password">` |
 | Finding specific user input fields - rememberMe | `//input[@formcontrolname="rememberMe"]` | `<input _ngcontent-doh-c8="" class="remember-me-button ng-untouched ng-pristine ng-valid" formcontrolname="rememberMe" type="checkbox">` |
-
-### UI Consistency Check:
-| **Description** | **Expression** | **Result** |
-|-----------------|----------------|------------|
-| Finding all clickable elements i.e. buttons and hyperlinks | `//button \| //a` | N/A |
 | Finding specific element based on `<button>` tag and the containing word "Sign" | `//button[contains(text(), "Sign")]` | `<button _ngcontent-doh-c8="" block="true" class="my-4 btn btn-primary" id="sign-in-button" type="submit">Sign in</button>` |
 
 ### User Feedback Messages:
