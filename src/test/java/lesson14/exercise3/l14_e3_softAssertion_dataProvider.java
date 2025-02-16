@@ -24,7 +24,7 @@ public class l14_e3_softAssertion_dataProvider {
 
         SoftAssert testSoftAssert = new SoftAssert();
 
-        testSoftAssert.assertEquals(actualTitle, expectedTitle, "This is not a title!");
+        testSoftAssert.assertEquals(expectedTitle, expectedTitle, "This is not a title!");
 
         testSoftAssert.assertEquals(actualHeader, expectedHeader, "This is not a header!");
 

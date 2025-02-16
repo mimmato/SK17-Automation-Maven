@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Test-methodSuite" parallel="methods" thread-count="4">
+    <test name="Parallel 1">
+        <classes>
+            <class name ="lesson14.exercise1.l14_e1_hardAssertion"/>
+            <class name ="lesson14.exercise2.l14_e2_softAssertion"/>
+            <class name ="lesson14.exercise3.l14_e3_hardAssertion_dataProvider"/>
+            <class name ="lesson14.exercise3.l14_e3_softAssertion_dataProvider"/>
+        </classes>
+    </test>
+</suite>
