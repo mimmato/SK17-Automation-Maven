@@ -1,3 +1,27 @@
+# Home (Posts) - [Link](http://training.skillo-bg.com:4200/posts/all)
+
+**Eduard S.**
+
+## Description and XPath Expressions
+
+### Navigation Bar Locators:
+| **Description**                                                           | **Expression**                      | **Result**                                                                                                                                  |
+|---------------------------------------------------------------------------|-------------------------------------|---------------------------------------------------------------------------------------------------------------------------------------------|
+| Home icon                                                                 | `//*[@id='homeIcon']`               | `<img _ngcontent-emn-c1="" alt="homeIcon" id="homeIcon" src="../../../assets/Iskillo-logo.png" tabindex="0">`                               |
+| Home button                                                               | `//*[@id="nav-link-home"]`          | `<a _ngcontent-emn-c1="" class="nav-link" id="nav-link-home" href="/posts/all">Home</a>`                                                    |
+| Login button                                                              | `//*[@id="nav-link-login"]`         | `<a _ngcontent-emn-c1="" class="nav-link" id="nav-link-login" href="/users/login">Login</a>`                                                |
+| Navbar toggler button (note: only visible when width of the page < 768px) | `//button[@class='navbar-toggler']` | `<button _ngcontent-jkp-c1="" class="navbar-toggler" type="button"><span _ngcontent-jkp-c1="" class="navbar-toggler-icon"></span></button>` |
+
+### Post locators:
+| **Description**     | **Expression**                                     | **Result**                                                       |
+|---------------------|----------------------------------------------------|------------------------------------------------------------------|
+| Post                | `//app-post-detail`                                | Selects all posts on the page (each post)                        |
+| Username            | `//a[@class='post-user']`                          | Selects the usernames (authors) within each post.                |
+| Profile image       | `//div[contains(@class, 'post-profile-img')]//img` | Selects the profile images in each post.                         |
+| Feed image          | `//div[@class='post-feed-img']//img`               | Selects the images posted in the feed.                           |
+| Like/Dislike counts | `//div[@class='d-flex']//strong`                   | Selects the like and dislike counts within the d-flex container. |
+| Post date           | `//div[@class='post-date']`                        | Selects the date when each post was made.                        |
+
 # Sign In (Login) - [Link](http://training.skillo-bg.com:4200/users/login)
 
 **Mihail Mihaylov**
