@@ -42,8 +42,7 @@ Page 1 (Home/Posts):
 
 Page 2 (Users/Login):
 
-- Form Field Locators – Used to verify the presence of essential fields for user login.
-- UI Consistency Check – Used to find dynamic elements, including buttons and hyperlinks.
+- Form Field Locators – Used to verify the presence of essential fields for user login (i.e. attributes: text, password, checkbox)
 - User Feedback Messages – Used to locate alerts necessary for form validation.
 
 ## 6. Next Steps (Automation)
