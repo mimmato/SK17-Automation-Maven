@@ -15,7 +15,7 @@ import java.time.Duration;
 import java.util.List;
 
 
-public class timeouts {
+public class waitsTests {
     private WebDriver webDriver;
     @BeforeSuite
     protected final void setupTestSuite(){
