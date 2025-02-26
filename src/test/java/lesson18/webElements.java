@@ -20,15 +20,16 @@ import java.util.List;
 public class webElements {
 
     private WebDriver webDriver;
+
     @BeforeSuite
-    protected final void setupTestSuite(){
+    protected final void setupTestSuite() {
         WebDriverManager.chromedriver().setup();
         WebDriverManager.firefoxdriver().setup();
         WebDriverManager.edgedriver().setup();
     }
 
     @BeforeMethod
-    protected final void setUpTest(){
+    protected final void setUpTest() {
         this.webDriver = new ChromeDriver();
         //this.webDriver = new EdgeDriver();
 
@@ -36,8 +37,9 @@ public class webElements {
         this.webDriver.manage().timeouts().pageLoadTimeout(Duration.ofSeconds(30));
         this.webDriver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
     }
+
     @AfterMethod
-    private final void tearDownTest(){
+    private final void tearDownTest() {
         if (this.webDriver != null) {
             this.webDriver.close();
         }
@@ -46,7 +48,7 @@ public class webElements {
     // https://www.imot.bg/pcgi/imot.cgi?act=2&rub=1
     //checkboxes on that page
     @Test
-    public void checkBox(){
+    public void checkBox() {
         this.webDriver.get("https://www.imot.bg/pcgi/imot.cgi?act=2&rub=1");
         String currentURL = this.webDriver.getCurrentUrl();
         System.out.println("The current URL is: " + currentURL);
@@ -69,10 +71,11 @@ public class webElements {
         checkbox1Room.click();
         Assert.assertFalse(isCheckedOrNotChecked.isSelected(), "Checkbox IS selected");
     }
+
     // https://www.imot.bg/pcgi/imot.cgi?act=26
     // radio where fields cannot be used before an option is checked
     @Test
-    public void testRadioButton(){
+    public void testRadioButton() {
 
         this.webDriver.get("https://www.imot.bg/pcgi/imot.cgi?act=26");
         String currentURL = this.webDriver.getCurrentUrl();
@@ -113,7 +116,7 @@ public class webElements {
     // https://www.imot.bg/pcgi/imot.cgi?act=2&rub=1
     // dropdown/select on that page
     @Test
-    public void testDropDown(){
+    public void testDropDown() {
         this.webDriver.get("https://www.imot.bg/pcgi/imot.cgi?act=2&rub=1");
         String currentURL = this.webDriver.getCurrentUrl();
         System.out.println("The current URL is: " + currentURL);
@@ -121,7 +124,7 @@ public class webElements {
         Select dropDown = new Select(this.webDriver.findElement(By.xpath("//select[@class='sw260']")));
         List<WebElement> dropDownOptions = dropDown.getOptions();
 
-        for (WebElement option : dropDownOptions){
+        for (WebElement option : dropDownOptions) {
             System.out.println("option: " + option.getText());
         }
 
@@ -137,19 +140,66 @@ public class webElements {
         Assert.assertEquals(dropDown.getFirstSelectedOption().getText(), "Цена");
     }
 
-
-    // https://www.imot.bg/pcgi/imot.cgi?act=10
+    // https://www.imot.bg/pcgi/imot.cgi?act=14
     // tables on that page
+
+    @Test
+    public void testTables() {
+        this.webDriver.get("https://www.imot.bg/pcgi/imot.cgi?act=14");
+        String currentURL = this.webDriver.getCurrentUrl();
+        System.out.println("The current URL is: " + currentURL);
+
+//        WebElement table = this.webDriver.findElement(By.xpath("//table[@id='tableStats']"));
+//        System.out.println(table.getText()); // see the entire table contents
+
+        //locate ALL header/column names
+        List<WebElement> tableHeaders = this.webDriver.findElements(By.xpath("//td[@class='tabStatHead']"));
+        for (WebElement headerElement : tableHeaders) {
+            System.out.println("Column name: " + headerElement.getText());
+        }
+
+        System.out.println("------------------------------------");
+        WebElement firstColumnName = this.webDriver.findElement(By.xpath("//td[@class='tabStatHead'][1]"));
+        System.out.println("The first column is: " + firstColumnName.getText());
+        WebElement lastColumnName = this.webDriver.findElement(By.xpath("//td[@class='tabStatHead'][last()]"));
+        System.out.println("The last column is: " + lastColumnName.getText());
+        System.out.println("------------------------------------");
+
+        int columnIndex = 0;
+
+        for (int i = 0; i < tableHeaders.size(); i++) {
+            if (tableHeaders.get(i).getText().equals("ДВУСТАЙНИ")) {
+                columnIndex = i + 1;
+                break;
+            }
+        }
+        Assert.assertNotEquals(columnIndex, 0, "Header 'ДВУСТАЙНИ' was not found!");
+        System.out.println("Column 'ДВУСТАЙНИ' is at index: " + columnIndex);
+        System.out.println("------------------------------------");
+
+        List<WebElement> tableRows = this.webDriver.findElements(By.xpath("//table[@id='tableStats']//tr[position() > 1]"));
+        for (WebElement row : tableRows) {
+//            System.out.println(row.getText());
+//            System.out.println(row.getText());
+
+            List<WebElement> cells = row.findElements(By.tagName("td"));
+
+            if (cells.size() >= columnIndex) {
+                String cellValue = cells.get(columnIndex - 1).findElement(By.xpath("//td//a//b")).getText();
+                // Use columnIndex - 1 for 0-based indexing
+                System.out.println("Value in column 'ДВУСТАЙНИ': " + cellValue);
+            }
+
+//        System.out.println(tableRows.getFirst());
+
+
+        }
+    }
+}
+
 
     //https://www.imot.bg/pcgi/imot.cgi
     // locate cookie icon and select option from popup
     //https://www.imot.bg/pcgi/imot.cgi
     // click on language icon for another popup
 
-
-
-
-
-
-
-}
